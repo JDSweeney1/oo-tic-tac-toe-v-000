@@ -83,31 +83,31 @@ class TicTacToe
     end
   end
 
-  def full?(board)
-    board.all?{|index| index == "X" || index == "O"}
+  def full?
+    @board.all?{|index| index == "X" || index == "O"}
   end
 
-  def draw?(board)
-    !won?(board) && full?(board)
+  def draw?
+    !won? && full?
   end
 
-  def over?(board)
-    won?(board) || draw?(board) || full?(board)
+  def over?
+    won? || draw? || full?
   end
 
-  def winner(board)
-    if won?(board)
-      board[won?(board)[0]]
+  def winner
+    if won?
+      @board[won?[0]]
     end
   end
 
-  def play(board)
-    until over?(board)
-      turn(board)
+  def play
+    until over?
+      turn
     end
-     if won?(board)
-       puts "Congratulations #{winner(board)}!"
-     else draw?(board)
+     if won?
+       puts "Congratulations #{winner}!"
+     else draw?
        puts "Cat's Game!"
      end
   end
